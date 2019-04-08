@@ -1,0 +1,18 @@
+name: web_finger
+version: 0.1.0
+
+description: |
+  A WebFinger (https://tools.ietf.org/html/rfc7033) client for
+  Crystal.
+
+authors:
+  - Todd Sundsted
+
+crystal: 0.27.2
+
+license: MIT
+
+dependencies:
+  host_meta:
+    git: git@github.com:toddsundsted/host_meta.git
+    version: 0.1.0
