@@ -1,5 +1,5 @@
 name: web_finger
-version: 0.1.0
+version: 0.1.1
 
 description: |
   A WebFinger (https://tools.ietf.org/html/rfc7033) client for
@@ -14,5 +14,5 @@ license: MIT
 
 dependencies:
   host_meta:
-    git: git@github.com:toddsundsted/host_meta.git
-    version: 0.1.0
+    git: https://github.com/toddsundsted/host_meta.git
+    version: 0.1.1
