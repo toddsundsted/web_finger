@@ -1,5 +1,5 @@
 name: web_finger
-version: 0.1.1
+version: 0.1.2
 
 description: |
   A WebFinger (https://tools.ietf.org/html/rfc7033) client for
@@ -8,7 +8,7 @@ description: |
 authors:
   - Todd Sundsted
 
-crystal: 0.27.2
+crystal: 0.30.0
 
 license: MIT
 
