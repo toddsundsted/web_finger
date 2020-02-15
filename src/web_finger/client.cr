@@ -36,7 +36,7 @@ module WebFinger
           "https://#{host}/.well-known/webfinger?resource={uri}"
         end
 
-      url = template.gsub("{uri}", URI.escape(account))
+      url = template.gsub("{uri}", URI.encode_www_form(account))
 
       HTTP::Client.get(url) do |response|
         case (code = response.status_code)
