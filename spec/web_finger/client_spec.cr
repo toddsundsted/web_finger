@@ -94,29 +94,29 @@ Spectator.describe WebFinger::Client do
 
     it "returns a result" do
       with_json do
-        WebFinger::Client.query("acct:foobar@example.com").should be_a(WebFinger::Result)
+        expect(WebFinger::Client.query("acct:foobar@example.com")).to be_a(WebFinger::Result)
       end
     end
 
     it "returns a result" do
       with_xml do
-        WebFinger::Client.query("acct:foobar@example.com").should be_a(WebFinger::Result)
+        expect(WebFinger::Client.query("acct:foobar@example.com")).to be_a(WebFinger::Result)
       end
     end
 
     it "makes an HTTP request to the account domain" do
       WebFinger::Client.query("acct:foobar@example.com")
-      HTTP::Client.history.map(&.host).should contain("example.com")
+      expect(HTTP::Client.history.map(&.host)).to contain("example.com")
     end
 
     it "makes an HTTP request with the webfinger path" do
       WebFinger::Client.query("acct:foobar@example.com")
-      HTTP::Client.history.map(&.path).should contain("/webfinger")
+      expect(HTTP::Client.history.map(&.path)).to contain("/webfinger")
     end
 
     it "encodes the account as a resource query parameter" do
       WebFinger::Client.query("acct:foobar@example.com")
-      HTTP::Client.history.map(&.query).should contain("r=acct%3Afoobar%40example.com")
+      expect(HTTP::Client.history.map(&.query)).to contain("r=acct%3Afoobar%40example.com")
     end
   end
 end
