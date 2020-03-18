@@ -74,6 +74,15 @@ def with_xml
   yield
 end
 
+def with_no_content_type
+  HTTP::Client.set_next_response(
+    200,
+    HTTP::Headers.new,
+    "{}"
+  )
+  yield
+end
+
 Spectator.describe WebFinger::Client do
   before_each do
     HTTP::Client.clear_history
@@ -100,6 +109,12 @@ Spectator.describe WebFinger::Client do
 
     it "returns a result" do
       with_xml do
+        expect(WebFinger::Client.query("acct:foobar@example.com")).to be_a(WebFinger::Result)
+      end
+    end
+
+    it "returns a result" do
+      with_no_content_type do
         expect(WebFinger::Client.query("acct:foobar@example.com")).to be_a(WebFinger::Result)
       end
     end

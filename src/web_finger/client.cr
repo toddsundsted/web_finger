@@ -42,10 +42,13 @@ module WebFinger
         case (code = response.status_code)
         when 200
           mt = response.mime_type.try(&.media_type)
-          if ["application/jrd+json", "application/json"].includes?(mt)
+          if mt =~ /xml/
+            Result.from_xml(response.body_io)
+          elsif mt =~ /json/
+            Result.from_json(response.body_io)
+          elsif response.body_io.peek.try(&.first) == 123 # sniff for '{'
             Result.from_json(response.body_io)
           else
-            # application/xrd+xml, application/xml, text/xml and everything else
             Result.from_xml(response.body_io)
           end
         when 404
