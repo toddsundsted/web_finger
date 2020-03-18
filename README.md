@@ -10,7 +10,7 @@ A [WebFinger](https://tools.ietf.org/html/rfc7033) client for Crystal.
 
 1. Add the dependency to your `shard.yml`:
 
-```
+```yaml
 dependencies:
   web_finger:
     github: toddsundsted/web_finger
@@ -20,7 +20,7 @@ dependencies:
 
 ## Usage
 
-```
+```crystal
 require "web_finger"
 
 w = WebFinger.query("acct:toddsundsted@epiktistes.com") # => #<WebFinger::Result:0x108d...>
