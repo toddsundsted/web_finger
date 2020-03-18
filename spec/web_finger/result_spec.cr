@@ -10,7 +10,7 @@ XRD_ENV = <<-XRD
 </XRD>
 XRD
 
-describe WebFinger::Result do
+Spectator.describe WebFinger::Result do
   describe ".from_xml" do
     it "parses an application/xrd+xml result" do
       WebFinger::Result.from_xml("<XRD/>").should be_a(WebFinger::Result)

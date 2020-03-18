@@ -1,2 +1,3 @@
-require "spec"
-require "../src/web_finger"
+require "../src/*"
+require "spectator"
+require "spectator/should"

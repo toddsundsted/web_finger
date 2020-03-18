@@ -74,11 +74,11 @@ def with_xml
   yield
 end
 
-Spec.before_each do
-  HTTP::Client.clear_history
-end
+Spectator.describe WebFinger::Client do
+  before_each do
+    HTTP::Client.clear_history
+  end
 
-describe WebFinger::Client do
   describe ".query" do
     it "raises an error if account doesn't exist" do
       expect_raises(WebFinger::NotFoundError) do
@@ -92,14 +92,14 @@ describe WebFinger::Client do
       end
     end
 
-    with_json do
-      it "returns a result" do
+    it "returns a result" do
+      with_json do
         WebFinger::Client.query("acct:foobar@example.com").should be_a(WebFinger::Result)
       end
     end
 
-    with_xml do
-      it "returns a result" do
+    it "returns a result" do
+      with_xml do
         WebFinger::Client.query("acct:foobar@example.com").should be_a(WebFinger::Result)
       end
     end
