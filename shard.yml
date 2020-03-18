@@ -14,5 +14,4 @@ license: MIT
 
 dependencies:
   host_meta:
-    git: https://github.com/toddsundsted/host_meta.git
-    version: 0.1.1
+    github: toddsundsted/host_meta
