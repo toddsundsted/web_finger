@@ -28,7 +28,7 @@ class HTTP::Client
     @@next_response = {status, headers, body}
   end
 
-  def self.get(url : String | URI, h : HTTP::Headers? = nil, b : BodyType = nil, t = nil)
+  def self.get(url : String, **options)
     url = url.is_a?(String) ? URI.parse(url) : url
     @@history << url
     case url.query || url.path
