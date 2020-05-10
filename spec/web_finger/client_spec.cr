@@ -6,7 +6,7 @@ module HostMeta
     # intentionally use non-standard values here to ensure
     # examples below don't test the fall-back template.
     HostMeta::Result.new(properties: nil, links: [
-      HostMeta::Result::Link.new("lrdd", "application/xrd+xml", "https://example.com/webfinger?r={uri}", nil)
+      HostMeta::Result::Link.new("lrdd", "application/xrd+xml", "https://#{host}/webfinger?r={uri}", nil)
     ])
   end
 end
@@ -31,6 +31,9 @@ class HTTP::Client
   def self.get(url : String, **options)
     url = url.is_a?(String) ? URI.parse(url) : url
     @@history << url
+    if url.host =~ /does-not-exist/
+      raise Socket::Addrinfo::Error.new(LibC::EAI_NONAME, "No address found", url.host)
+    end
     case url.query || url.path
     when /not-found/
       yield HTTP::Client::Response.new(404)
@@ -89,6 +92,12 @@ Spectator.describe WebFinger::Client do
   end
 
   describe ".query" do
+    it "raises an error if host doesn't exist" do
+      expect_raises(WebFinger::NotFoundError) do
+        WebFinger::Client.query("acct:foobar@does-not-exist.com")
+      end
+    end
+
     it "raises an error if account doesn't exist" do
       expect_raises(WebFinger::NotFoundError) do
         WebFinger::Client.query("acct:not-found@example.com")

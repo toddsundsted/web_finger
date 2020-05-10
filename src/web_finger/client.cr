@@ -57,6 +57,8 @@ module WebFinger
           raise Error.new("error [#{code}]: #{url}")
         end
       end
+    rescue ex : Socket::Addrinfo::Error
+      raise NotFoundError.new(ex.message)
     end
   end
 end
