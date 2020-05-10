@@ -6,21 +6,21 @@ module WebFinger
   class Error < Exception
   end
 
-  # Address not found error.
+  # Account not found error.
   class NotFoundError < Error
   end
 
   # The client.
   module Client
-    # Returns the result of querying the specified address.
+    # Returns the result of querying for the specified account.
     #
-    # The address should conform to the ['acct' URI
+    # The account should conform to the ['acct' URI
     # Scheme](https://tools.ietf.org/html/rfc7565).
     #
     #     w = WebFinger.query("acct:toddsundsted@epiktistes.com") # => #<WebFinger::Result:0x108d...>
     #     w.link("http://webfinger.net/rel/profile-page").href # => "https://epiktistes.com/@toddsundsted"
     #
-    # Raises `WebFinger::NotFoundError` if the address does not
+    # Raises `WebFinger::NotFoundError` if the account does not
     # exist. Otherwise, returns `WebFinger::Result`.
     #
     def self.query(account)
