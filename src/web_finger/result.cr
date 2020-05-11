@@ -3,7 +3,7 @@ require "xml"
 
 module WebFinger
   # `Result` error.
-  class ResultError < Exception
+  class ResultError < Error
   end
 
   # A `WebFinger` query result.
