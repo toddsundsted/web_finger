@@ -32,7 +32,7 @@ module WebFinger
       template =
         begin
           HostMeta.query(host).links("lrdd").first.template.not_nil!
-        rescue HostMeta::ResultError | NilAssertionError | IndexError
+        rescue HostMeta::Error | NilAssertionError | IndexError
           "https://#{host}/.well-known/webfinger?resource={uri}"
         end
 
