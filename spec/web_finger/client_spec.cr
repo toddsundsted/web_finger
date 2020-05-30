@@ -35,6 +35,8 @@ class HTTP::Client
       raise Socket::Addrinfo::Error.new(LibC::EAI_NONAME, "No address found", url.host)
     end
     case url.query || url.path
+    when /redirect/
+      yield HTTP::Client::Response.new(302, headers: HTTP::Headers{"Location" => "https://elsewhere/"})
     when /not-found/
       yield HTTP::Client::Response.new(404)
     when /internal-server-error/
@@ -126,6 +128,11 @@ Spectator.describe WebFinger::Client do
       with_no_content_type do
         expect(WebFinger::Client.query("acct:foobar@example.com")).to be_a(WebFinger::Result)
       end
+    end
+
+    it "redirects" do
+      WebFinger::Client.query("acct:redirect@example.com")
+      expect(HTTP::Client.history.map(&.host)).to contain("elsewhere")
     end
 
     it "makes an HTTP request to the account domain" do
