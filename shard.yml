@@ -1,5 +1,5 @@
 name: web_finger
-version: 0.1.7
+version: 0.1.8
 
 description: |
   A WebFinger (https://tools.ietf.org/html/rfc7033) client for
