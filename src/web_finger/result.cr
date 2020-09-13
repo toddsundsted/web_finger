@@ -9,21 +9,15 @@ module WebFinger
   # A `WebFinger` query result.
   class Result
     class Link
-      JSON.mapping(
-        rel: String,
-        type: String?,
-        href: String?,
-        properties: Hash(String, String?)?,
-        titles: Hash(String, String)?
-      )
+      include JSON::Serializable
 
-      def initialize(
-        @rel : String,
-        @type : String?,
-        @href : String?,
-        @properties : Hash(String, String?)?,
-        @titles : Hash(String, String)?
-      )
+      property rel : String
+      property type : String?
+      property href : String?
+      property properties : Hash(String, String?)?
+      property titles : Hash(String, String)?
+
+      def initialize(@rel, @type, @href, @properties, @titles)
       end
 
       def self.from_xml(xml, ns, xrd)
@@ -45,18 +39,7 @@ module WebFinger
       end
     end
 
-    JSON.mapping(
-      subject: String?,
-      aliases: Array(String)?,
-      properties: Hash(String, String?)?,
-      links: {
-        type: Hash(String, Link),
-        converter: Converter,
-        nilable: true
-      }
-    )
-
-    private class Converter
+    class Converter
       def self.from_json(value : JSON::PullParser)
         Hash(String, Link).new.tap do |hash|
           value.read_array do
@@ -67,12 +50,15 @@ module WebFinger
       end
     end
 
-    def initialize(
-      @subject : String?,
-      @aliases : Array(String)?,
-      @properties : Hash(String, String?)?,
-      @links : Hash(String, Link)?
-    )
+    include JSON::Serializable
+
+    property subject : String?
+    property aliases : Array(String)?
+    property properties : Hash(String, String?)?
+    @[JSON::Field(converter: WebFinger::Result::Converter)]
+    property links : Hash(String, Link)?
+
+    def initialize(@subject, @aliases, @properties, @links)
     end
 
     def self.from_xml(xml)
