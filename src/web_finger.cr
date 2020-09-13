@@ -9,8 +9,9 @@ module WebFinger
   #     w = WebFinger.query("acct:toddsundsted@epiktistes.com") # => #<WebFinger::Result:0x108d...>
   #     w.link("http://webfinger.net/rel/profile-page").href # => "https://epiktistes.com/@toddsundsted"
   #
-  # Raises `WebFinger::NotFoundError` if the account does not
-  # exist. Otherwise, returns `WebFinger::Result`.
+  # Raises `WebFinger::NotFoundError` if the account does not exist and
+  # `WebFinger::RedirectionError` if redirection fails.  Otherwise,
+  # returns `WebFinger::Result`.
   #
   def self.query(account)
     WebFinger::Client.query(account)
