@@ -13,8 +13,8 @@ module WebFinger
   # `WebFinger::RedirectionError` if redirection fails.  Otherwise,
   # returns `WebFinger::Result`.
   #
-  def self.query(account)
-    WebFinger::Client.query(account)
+  def self.query(account, *args)
+    WebFinger::Client.query(account, *args)
   end
 end
 
