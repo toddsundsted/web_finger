@@ -16,8 +16,9 @@ module WebFinger
       property href : String?
       property properties : Hash(String, String?)?
       property titles : Hash(String, String)?
+      property template : String?
 
-      def initialize(@rel, @type, @href, @properties, @titles)
+      def initialize(@rel, @type, @href, @properties, @titles, @template)
       end
 
       def self.from_xml(xml, ns, xrd)
@@ -35,7 +36,7 @@ module WebFinger
               acc
             end
         end
-        new(xml["rel"], xml["type"]?, xml["href"]?, properties, titles)
+        new(xml["rel"], xml["type"]?, xml["href"]?, properties, titles, xml["template"]?)
       end
     end
 

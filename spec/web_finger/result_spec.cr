@@ -71,6 +71,13 @@ Spectator.describe WebFinger::Result do
         expect(links.try(&.size)).to eq(1)
         expect(links.try(&.first.last.titles)).to eq({"default" => "Default", "en" => "Test"})
       end
+
+      it "maps template" do
+        result = XRD_ENV % "<Link rel='self' template='https://example.com/?uri={uri}'/>"
+        links = WebFinger::Result.from_xml(result).links
+        expect(links.try(&.size)).to eq(1)
+        expect(links.try(&.first.last.template)).to eq("https://example.com/?uri={uri}")
+      end
     end
   end
 
@@ -133,6 +140,13 @@ Spectator.describe WebFinger::Result do
         links = WebFinger::Result.from_json(result).links
         expect(links.try(&.size)).to eq(1)
         expect(links.try(&.first.last.titles)).to eq({"en" => "Test"})
+      end
+
+      it "maps template" do
+        result = %[{"links":[{"rel":"self","template":"https://example.com/?uri={uri}"}]}]
+        links = WebFinger::Result.from_json(result).links
+        expect(links.try(&.size)).to eq(1)
+        expect(links.try(&.first.last.template)).to eq("https://example.com/?uri={uri}")
       end
     end
   end
