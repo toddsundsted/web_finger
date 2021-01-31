@@ -28,7 +28,7 @@ class HTTP::Client
     @@next_response = {status, headers, body}
   end
 
-  def self.get(url : String, **options)
+  def self.get(url : String)
     url = url.is_a?(String) ? URI.parse(url) : url
     @@history << url
     if url.host =~ /does-not-exist/
