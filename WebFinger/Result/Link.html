@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="0.2.3">
+<meta name="crystal_docs.project_name" content="web_finger">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="web_finger">
+  <title>WebFinger::Result::Link - web_finger 0.2.3</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          web_finger
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.2.3
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="web_finger/WebFinger" data-name="webfinger">
+      <a href="../../WebFinger.html">WebFinger</a>
+      
+        <ul>
+  
+  <li class=" " data-id="web_finger/WebFinger/Client" data-name="webfinger::client">
+      <a href="../../WebFinger/Client.html">Client</a>
+      
+    </li>
+  
+  <li class=" " data-id="web_finger/WebFinger/Error" data-name="webfinger::error">
+      <a href="../../WebFinger/Error.html">Error</a>
+      
+    </li>
+  
+  <li class=" " data-id="web_finger/WebFinger/NotFoundError" data-name="webfinger::notfounderror">
+      <a href="../../WebFinger/NotFoundError.html">NotFoundError</a>
+      
+    </li>
+  
+  <li class=" " data-id="web_finger/WebFinger/RedirectionError" data-name="webfinger::redirectionerror">
+      <a href="../../WebFinger/RedirectionError.html">RedirectionError</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="web_finger/WebFinger/Result" data-name="webfinger::result">
+      <a href="../../WebFinger/Result.html">Result</a>
+      
+        <ul>
+  
+  <li class=" " data-id="web_finger/WebFinger/Result/Converter" data-name="webfinger::result::converter">
+      <a href="../../WebFinger/Result/Converter.html">Converter</a>
+      
+    </li>
+  
+  <li class=" current" data-id="web_finger/WebFinger/Result/Link" data-name="webfinger::result::link">
+      <a href="../../WebFinger/Result/Link.html">Link</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="web_finger/WebFinger/ResultError" data-name="webfinger::resulterror">
+      <a href="../../WebFinger/ResultError.html">ResultError</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> WebFinger::Result::Link
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../WebFinger/Result/Link.html">WebFinger::Result::Link</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">JSON::Serializable</li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L11" target="_blank">
+        web_finger/result.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(rel,type,href,properties,titles,template)-class-method" class="signature"><strong>.new</strong>(rel, type, href, properties, titles, template)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(pull:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#from_xml(xml,ns,xrd)-class-method" class="signature"><strong>.from_xml</strong>(xml, ns, xrd)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#href:String?-instance-method" class="signature"><strong>#href</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#href=(href:String?)-instance-method" class="signature"><strong>#href=</strong>(href : String?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#properties:Hash(String,String?)?-instance-method" class="signature"><strong>#properties</strong> : Hash(String, String?)?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#properties=(properties:Hash(String,String?)?)-instance-method" class="signature"><strong>#properties=</strong>(properties : Hash(String, String?)?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rel:String-instance-method" class="signature"><strong>#rel</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rel=(rel:String)-instance-method" class="signature"><strong>#rel=</strong>(rel : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#template:String?-instance-method" class="signature"><strong>#template</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#template=(template:String?)-instance-method" class="signature"><strong>#template=</strong>(template : String?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#titles:Hash(String,String)?-instance-method" class="signature"><strong>#titles</strong> : Hash(String, String)?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#titles=(titles:Hash(String,String)?)-instance-method" class="signature"><strong>#titles=</strong>(titles : Hash(String, String)?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#type:String?-instance-method" class="signature"><strong>#type</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#type=(type:String?)-instance-method" class="signature"><strong>#type=</strong>(type : String?)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(rel,type,href,properties,titles,template)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(rel, type, href, properties, titles, template)
+
+        <a class="method-permalink" href="#new(rel,type,href,properties,titles,template)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new(pull:JSON::PullParser)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="from_xml(xml,ns,xrd)-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_xml</strong>(xml, ns, xrd)
+
+        <a class="method-permalink" href="#from_xml(xml,ns,xrd)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="href:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>href</strong> : String?
+
+        <a class="method-permalink" href="#href:String?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="href=(href:String?)-instance-method">
+      <div class="signature">
+        
+        def <strong>href=</strong>(href : String?)
+
+        <a class="method-permalink" href="#href=(href:String?)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="properties:Hash(String,String?)?-instance-method">
+      <div class="signature">
+        
+        def <strong>properties</strong> : Hash(String, String?)?
+
+        <a class="method-permalink" href="#properties:Hash(String,String?)?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="properties=(properties:Hash(String,String?)?)-instance-method">
+      <div class="signature">
+        
+        def <strong>properties=</strong>(properties : Hash(String, String?)?)
+
+        <a class="method-permalink" href="#properties=(properties:Hash(String,String?)?)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rel:String-instance-method">
+      <div class="signature">
+        
+        def <strong>rel</strong> : String
+
+        <a class="method-permalink" href="#rel:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rel=(rel:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>rel=</strong>(rel : String)
+
+        <a class="method-permalink" href="#rel=(rel:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="template:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>template</strong> : String?
+
+        <a class="method-permalink" href="#template:String?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="template=(template:String?)-instance-method">
+      <div class="signature">
+        
+        def <strong>template=</strong>(template : String?)
+
+        <a class="method-permalink" href="#template=(template:String?)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="titles:Hash(String,String)?-instance-method">
+      <div class="signature">
+        
+        def <strong>titles</strong> : Hash(String, String)?
+
+        <a class="method-permalink" href="#titles:Hash(String,String)?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="titles=(titles:Hash(String,String)?)-instance-method">
+      <div class="signature">
+        
+        def <strong>titles=</strong>(titles : Hash(String, String)?)
+
+        <a class="method-permalink" href="#titles=(titles:Hash(String,String)?)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="type:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>type</strong> : String?
+
+        <a class="method-permalink" href="#type:String?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="type=(type:String?)-instance-method">
+      <div class="signature">
+        
+        def <strong>type=</strong>(type : String?)
+
+        <a class="method-permalink" href="#type=(type:String?)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/toddsundsted/web_finger/blob/v0.2.3/src/web_finger/result.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
