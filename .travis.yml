@@ -15,5 +15,5 @@ deploy:
   github_token: $GITHUB_TOKEN
   project_name: toddsundsted/web_finger
   on:
-    branch: master
+    branch: main
   local_dir: docs

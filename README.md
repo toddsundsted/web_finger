@@ -1,7 +1,7 @@
 # web_finger
 
 [![GitHub Release](https://img.shields.io/github/release/toddsundsted/web_finger.svg)](https://github.com/toddsundsted/web_finger/releases)
-[![Build Status](https://travis-ci.org/toddsundsted/web_finger.svg?branch=master)](https://travis-ci.org/toddsundsted/web_finger)
+[![Build Status](https://travis-ci.org/toddsundsted/web_finger.svg?branch=main)](https://travis-ci.org/toddsundsted/web_finger)
 [![Documentation](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://toddsundsted.github.io/web_finger/)
 
 A [WebFinger](https://tools.ietf.org/html/rfc7033) client for Crystal.
