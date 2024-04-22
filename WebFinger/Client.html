@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.0.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.11.2">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="web_finger">
 
@@ -22,9 +23,14 @@
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -115,7 +121,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> WebFinger::Client
+  <span class="kind">module</span> WebFinger::<wbr>Client
 
 </h1>
 
@@ -157,7 +163,7 @@
   </h2>
   
     
-      <a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/client.cr#L18" target="_blank">
+      <a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/client.cr#L18" target="_blank">
         web_finger/client.cr
       </a>
     
@@ -165,6 +171,29 @@
   
 
 
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="ACCOUNT_REGEX">
+        <strong>ACCOUNT_REGEX</strong> = <code><span class="s">/\
+      ^https:\/\/(?&lt;host&gt;[^\/]+)(\/.*)?$|
+      ^([^@]+)@(?&lt;host&gt;[^@]+)$|
+      ^(?&lt;host&gt;.+)$
+    /</span>mx</code>
+      </dt>
+      
+    
+  </dl>
 
 
 
@@ -181,7 +210,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#query(account,attempts=10)-class-method" class="signature"><strong>.query</strong>(account, attempts = <span class="n">10</span>)</a>
+        <a href="#query%28account%2Cattempts%3D10%29-class-method" class="signature"><strong>.query</strong>(account, attempts = <span class="n">10</span>)</a>
         
           <div class="summary"><p>Returns the result of querying for the specified account.</p></div>
         
@@ -216,19 +245,16 @@
         
         def self.<strong>query</strong>(account, attempts = <span class="n">10</span>)
 
-        <a class="method-permalink" href="#query(account,attempts=10)-class-method">#</a>
+        <a class="method-permalink" href="#query%28account%2Cattempts%3D10%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns the result of querying for the specified account.</p>
-
-<p>The account should conform to the <a href="https://tools.ietf.org/html/rfc7565">'acct' URI
-Scheme</a>.</p>
-
+<p>The account should conform to the <a href="https://tools.ietf.org/html/rfc7565">'acct' URI Scheme</a>.
+Liberal validation of this format eases federation with other popular servers.</p>
 <pre><code class="language-crystal">w <span class="o">=</span> <span class="t">WebFinger</span>.query(<span class="s">&quot;acct:toddsundsted@epiktistes.com&quot;</span>) <span class="c"># =&gt; #&lt;WebFinger::Result:0x108d...&gt;</span>
 w.link(<span class="s">&quot;http://webfinger.net/rel/profile-page&quot;</span>).href <span class="c"># =&gt; &quot;https://epiktistes.com/@toddsundsted&quot;</span></code></pre>
-
 <p>Raises <code><a href="../WebFinger/NotFoundError.html">WebFinger::NotFoundError</a></code> if the account does not exist
 and <code><a href="../WebFinger/RedirectionError.html">WebFinger::RedirectionError</a></code> if redirection failed.
 Otherwise, returns <code><a href="../WebFinger/Result.html">WebFinger::Result</a></code>.</p>
@@ -237,7 +263,7 @@ Otherwise, returns <code><a href="../WebFinger/Result.html">WebFinger::Result</a
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/client.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/client.cr#L37" target="_blank">View source</a>]
         
       </div>
     </div>

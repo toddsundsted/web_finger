@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.0.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.11.2">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="web_finger">
 
@@ -22,9 +23,14 @@
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -115,7 +121,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> WebFinger::Result
+  <span class="kind">class</span> WebFinger::<wbr>Result
 
 </h1>
 
@@ -173,7 +179,7 @@
   </h2>
   
     
-      <a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L10" target="_blank">
+      <a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L10" target="_blank">
         web_finger/result.cr
       </a>
     
@@ -195,12 +201,12 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(subject,aliases,properties,links)-class-method" class="signature"><strong>.new</strong>(subject, aliases, properties, links)</a>
+        <a href="#new%28subject%3ANil%7CString%2Caliases%3ANil%7CArray%28String%29%2Cproperties%3ANil%7CHash%28String%2CNil%7CString%29%2Clinks%3ANil%7CHash%28String%2CWebFinger%3A%3AResult%3A%3ALink%29%29-class-method" class="signature"><strong>.new</strong>(subject : Nil | String, aliases : Nil | Array(String), properties : Nil | Hash(String, Nil | String), links : Nil | Hash(String, WebFinger::Result::Link))</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(pull:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
         
       </li>
     
@@ -219,11 +225,13 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#from_xml(xml)-class-method" class="signature"><strong>.from_xml</strong>(xml)</a>
+        <a href="#from_xml%28xml%29-class-method" class="signature"><strong>.from_xml</strong>(xml)</a>
         
       </li>
     
   </ul>
+
+
 
 
 
@@ -238,68 +246,66 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#aliases:Array(String)?-instance-method" class="signature"><strong>#aliases</strong> : Array(String)?</a>
+        <a href="#aliases%3AArray%28String%29%7CNil-instance-method" class="signature"><strong>#aliases</strong> : Array(String) | Nil</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#aliases=(aliases:Array(String)?)-instance-method" class="signature"><strong>#aliases=</strong>(aliases : Array(String)?)</a>
+        <a href="#aliases%3D%28aliases%3AArray%28String%29%7CNil%29-instance-method" class="signature"><strong>#aliases=</strong>(aliases : Array(String) | Nil)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#link(key)-instance-method" class="signature"><strong>#link</strong>(key)</a>
+        <a href="#link%28key%29-instance-method" class="signature"><strong>#link</strong>(key)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#link?(key)-instance-method" class="signature"><strong>#link?</strong>(key)</a>
+        <a href="#link%3F%28key%29-instance-method" class="signature"><strong>#link?</strong>(key)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#links:Hash(String,Link)?-instance-method" class="signature"><strong>#links</strong> : Hash(String, Link)?</a>
+        <a href="#links%3AHash%28String%2CLink%29%7CNil-instance-method" class="signature"><strong>#links</strong> : Hash(String, Link) | Nil</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#links=(links:Hash(String,Link)?)-instance-method" class="signature"><strong>#links=</strong>(links : Hash(String, Link)?)</a>
+        <a href="#links%3D%28links%3AHash%28String%2CLink%29%7CNil%29-instance-method" class="signature"><strong>#links=</strong>(links : Hash(String, Link) | Nil)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#properties:Hash(String,String?)?-instance-method" class="signature"><strong>#properties</strong> : Hash(String, String?)?</a>
+        <a href="#properties%3AHash%28String%2CString%7CNil%29%7CNil-instance-method" class="signature"><strong>#properties</strong> : Hash(String, String | Nil) | Nil</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#properties=(properties:Hash(String,String?)?)-instance-method" class="signature"><strong>#properties=</strong>(properties : Hash(String, String?)?)</a>
+        <a href="#properties%3D%28properties%3AHash%28String%2CString%7CNil%29%7CNil%29-instance-method" class="signature"><strong>#properties=</strong>(properties : Hash(String, String | Nil) | Nil)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#property(key)-instance-method" class="signature"><strong>#property</strong>(key)</a>
+        <a href="#property%28key%29-instance-method" class="signature"><strong>#property</strong>(key)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#property?(key)-instance-method" class="signature"><strong>#property?</strong>(key)</a>
+        <a href="#property%3F%28key%29-instance-method" class="signature"><strong>#property?</strong>(key)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#subject:String?-instance-method" class="signature"><strong>#subject</strong> : String?</a>
+        <a href="#subject%3AString%7CNil-instance-method" class="signature"><strong>#subject</strong> : String | Nil</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#subject=(subject:String?)-instance-method" class="signature"><strong>#subject=</strong>(subject : String?)</a>
+        <a href="#subject%3D%28subject%3AString%7CNil%29-instance-method" class="signature"><strong>#subject=</strong>(subject : String | Nil)</a>
         
       </li>
     
   </ul>
-
-
 
 
 
@@ -314,17 +320,26 @@
     
 
 
-  
-    
-
-
-    
-
-
     
 
 
   
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
     
 
 
@@ -347,18 +362,18 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(subject,aliases,properties,links)-class-method">
+    <div class="entry-detail" id="new(subject:Nil|String,aliases:Nil|Array(String),properties:Nil|Hash(String,Nil|String),links:Nil|Hash(String,WebFinger::Result::Link))-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(subject, aliases, properties, links)
+        def self.<strong>new</strong>(subject : Nil | String, aliases : Nil | Array(String), properties : Nil | Hash(String, Nil | String), links : Nil | Hash(String, <a href="../WebFinger/Result/Link.html">WebFinger::Result::Link</a>))
 
-        <a class="method-permalink" href="#new(subject,aliases,properties,links)-class-method">#</a>
+        <a class="method-permalink" href="#new%28subject%3ANil%7CString%2Caliases%3ANil%7CArray%28String%29%2Cproperties%3ANil%7CHash%28String%2CNil%7CString%29%2Clinks%3ANil%7CHash%28String%2CWebFinger%3A%3AResult%3A%3ALink%29%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L62" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L62" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -368,13 +383,13 @@
         
         def self.<strong>new</strong>(pull : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(pull:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L54" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L54" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -396,17 +411,19 @@
         
         def self.<strong>from_xml</strong>(xml)
 
-        <a class="method-permalink" href="#from_xml(xml)-class-method">#</a>
+        <a class="method-permalink" href="#from_xml%28xml%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L65" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
   
+
+
 
 
 
@@ -419,34 +436,34 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="aliases:Array(String)?-instance-method">
+    <div class="entry-detail" id="aliases:Array(String)|Nil-instance-method">
       <div class="signature">
         
-        def <strong>aliases</strong> : Array(String)?
+        def <strong>aliases</strong> : Array(String) | Nil
 
-        <a class="method-permalink" href="#aliases:Array(String)?-instance-method">#</a>
+        <a class="method-permalink" href="#aliases%3AArray%28String%29%7CNil-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L57" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L57" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="aliases=(aliases:Array(String)?)-instance-method">
+    <div class="entry-detail" id="aliases=(aliases:Array(String)|Nil)-instance-method">
       <div class="signature">
         
-        def <strong>aliases=</strong>(aliases : Array(String)?)
+        def <strong>aliases=</strong>(aliases : Array(String) | Nil)
 
-        <a class="method-permalink" href="#aliases=(aliases:Array(String)?)-instance-method">#</a>
+        <a class="method-permalink" href="#aliases%3D%28aliases%3AArray%28String%29%7CNil%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L57" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L57" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -456,13 +473,13 @@
         
         def <strong>link</strong>(key)
 
-        <a class="method-permalink" href="#link(key)-instance-method">#</a>
+        <a class="method-permalink" href="#link%28key%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L115" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L115" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -472,77 +489,77 @@
         
         def <strong>link?</strong>(key)
 
-        <a class="method-permalink" href="#link?(key)-instance-method">#</a>
+        <a class="method-permalink" href="#link%3F%28key%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L122" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L122" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="links:Hash(String,Link)?-instance-method">
+    <div class="entry-detail" id="links:Hash(String,Link)|Nil-instance-method">
       <div class="signature">
         
-        def <strong>links</strong> : Hash(String, <a href="../WebFinger/Result/Link.html">Link</a>)?
+        def <strong>links</strong> : Hash(String, <a href="../WebFinger/Result/Link.html">Link</a>) | Nil
 
-        <a class="method-permalink" href="#links:Hash(String,Link)?-instance-method">#</a>
+        <a class="method-permalink" href="#links%3AHash%28String%2CLink%29%7CNil-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L60" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L60" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="links=(links:Hash(String,Link)?)-instance-method">
+    <div class="entry-detail" id="links=(links:Hash(String,Link)|Nil)-instance-method">
       <div class="signature">
         
-        def <strong>links=</strong>(links : Hash(String, <a href="../WebFinger/Result/Link.html">Link</a>)?)
+        def <strong>links=</strong>(links : Hash(String, <a href="../WebFinger/Result/Link.html">Link</a>) | Nil)
 
-        <a class="method-permalink" href="#links=(links:Hash(String,Link)?)-instance-method">#</a>
+        <a class="method-permalink" href="#links%3D%28links%3AHash%28String%2CLink%29%7CNil%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L60" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L60" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="properties:Hash(String,String?)?-instance-method">
+    <div class="entry-detail" id="properties:Hash(String,String|Nil)|Nil-instance-method">
       <div class="signature">
         
-        def <strong>properties</strong> : Hash(String, String?)?
+        def <strong>properties</strong> : Hash(String, String | Nil) | Nil
 
-        <a class="method-permalink" href="#properties:Hash(String,String?)?-instance-method">#</a>
+        <a class="method-permalink" href="#properties%3AHash%28String%2CString%7CNil%29%7CNil-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L58" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L58" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="properties=(properties:Hash(String,String?)?)-instance-method">
+    <div class="entry-detail" id="properties=(properties:Hash(String,String|Nil)|Nil)-instance-method">
       <div class="signature">
         
-        def <strong>properties=</strong>(properties : Hash(String, String?)?)
+        def <strong>properties=</strong>(properties : Hash(String, String | Nil) | Nil)
 
-        <a class="method-permalink" href="#properties=(properties:Hash(String,String?)?)-instance-method">#</a>
+        <a class="method-permalink" href="#properties%3D%28properties%3AHash%28String%2CString%7CNil%29%7CNil%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L58" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L58" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -552,13 +569,13 @@
         
         def <strong>property</strong>(key)
 
-        <a class="method-permalink" href="#property(key)-instance-method">#</a>
+        <a class="method-permalink" href="#property%28key%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L102" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L102" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -568,51 +585,49 @@
         
         def <strong>property?</strong>(key)
 
-        <a class="method-permalink" href="#property?(key)-instance-method">#</a>
+        <a class="method-permalink" href="#property%3F%28key%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L109" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L109" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="subject:String?-instance-method">
+    <div class="entry-detail" id="subject:String|Nil-instance-method">
       <div class="signature">
         
-        def <strong>subject</strong> : String?
+        def <strong>subject</strong> : String | Nil
 
-        <a class="method-permalink" href="#subject:String?-instance-method">#</a>
+        <a class="method-permalink" href="#subject%3AString%7CNil-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L56" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L56" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="subject=(subject:String?)-instance-method">
+    <div class="entry-detail" id="subject=(subject:String|Nil)-instance-method">
       <div class="signature">
         
-        def <strong>subject=</strong>(subject : String?)
+        def <strong>subject=</strong>(subject : String | Nil)
 
-        <a class="method-permalink" href="#subject=(subject:String?)-instance-method">#</a>
+        <a class="method-permalink" href="#subject%3D%28subject%3AString%7CNil%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/toddsundsted/web_finger/blob/c96f2e57c60cd67e9ab2b0566be620309428444f/src/web_finger/result.cr#L56" target="_blank">View source</a>]
+          [<a href="https://github.com/toddsundsted/web_finger/blob/72865e06ba291a912c5101b3ca020328cfea50b0/src/web_finger/result.cr#L56" target="_blank">View source</a>]
         
       </div>
     </div>
   
-
-
 
 
 </div>
