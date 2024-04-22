@@ -40,7 +40,7 @@ class HTTP::Client
     end
     case url.query || url.path
     when /redirect/
-      yield HTTP::Client::Response.new(302, headers: HTTP::Headers{"Location" => "https://elsewhere/"})
+      yield HTTP::Client::Response.new(302, headers: HTTP::Headers{"Location" => "https://elsewhere.com/"})
     when /not-found/
       yield HTTP::Client::Response.new(404)
     when /internal-server-error/
@@ -134,9 +134,9 @@ Spectator.describe WebFinger::Client do
       end
     end
 
-    it "redirects" do
+    it "follows redirects" do
       WebFinger::Client.query("acct:redirect@example.com")
-      expect(HTTP::Client.history.map(&.host)).to contain("elsewhere")
+      expect(HTTP::Client.history.map(&.host)).to contain("elsewhere.com")
     end
 
     it "makes an HTTP request to the account domain" do
@@ -149,7 +149,7 @@ Spectator.describe WebFinger::Client do
       expect(HTTP::Client.history.map(&.path)).to contain("/webfinger")
     end
 
-    it "encodes the account as a resource query parameter" do
+    it "encodes the account as a query parameter" do
       WebFinger::Client.query("acct:foobar@example.com")
       expect(HTTP::Client.history.map(&.query)).to contain("r=acct%3Afoobar%40example.com")
     end
