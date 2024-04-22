@@ -153,5 +153,25 @@ Spectator.describe WebFinger::Client do
       WebFinger::Client.query("acct:foobar@example.com")
       expect(HTTP::Client.history.map(&.query)).to contain("r=acct%3Afoobar%40example.com")
     end
+
+    it "supports a missing 'acct' URI scheme" do
+      WebFinger::Client.query("foobar@example.com")
+      expect(HTTP::Client.history.map(&.query)).to contain("r=foobar%40example.com")
+    end
+
+    it "supports the HTTPS URI scheme" do
+      WebFinger::Client.query("https://example.com/@foobar")
+      expect(HTTP::Client.history.map(&.query)).to contain("r=https%3A%2F%2Fexample.com%2F%40foobar")
+    end
+
+    it "supports a domain name" do
+      WebFinger::Client.query("example.com")
+      expect(HTTP::Client.history.map(&.query)).to contain("r=example.com")
+    end
+
+    it "supports the HTTPS URI scheme" do
+      WebFinger::Client.query("https://example.com")
+      expect(HTTP::Client.history.map(&.query)).to contain("r=https%3A%2F%2Fexample.com")
+    end
   end
 end

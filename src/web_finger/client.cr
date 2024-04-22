@@ -16,10 +16,16 @@ module WebFinger
 
   # The client.
   module Client
+    ACCOUNT_REGEX = %r<
+      ^https://(?<host>[^/]+)(/.*)?$|
+      ^([^@]+)@(?<host>[^@]+)$|
+      ^(?<host>.+)$
+    >mx
+
     # Returns the result of querying for the specified account.
     #
-    # The account should conform to the ['acct' URI
-    # Scheme](https://tools.ietf.org/html/rfc7565).
+    # The account should conform to the ['acct' URI Scheme](https://tools.ietf.org/html/rfc7565).
+    # Liberal validation of this format eases federation with other popular servers.
     #
     #     w = WebFinger.query("acct:toddsundsted@epiktistes.com") # => #<WebFinger::Result:0x108d...>
     #     w.link("http://webfinger.net/rel/profile-page").href # => "https://epiktistes.com/@toddsundsted"
@@ -29,10 +35,11 @@ module WebFinger
     # Otherwise, returns `WebFinger::Result`.
     #
     def self.query(account, attempts = 10)
-      unless account =~ /^([^@]+)@([^@]+)$/
+      unless account =~ ACCOUNT_REGEX
         raise Error.new("invalid account: #{account}")
       end
-      _, _, host = $~.to_a
+
+      host = $~["host"]?
 
       template =
         begin
