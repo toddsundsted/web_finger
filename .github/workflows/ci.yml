@@ -17,7 +17,7 @@ jobs:
       - name: Download source
         uses: actions/checkout@v2
       - name: Install Crystal
-        uses: crystal-lang/install-crystal@31648d0e69d6c8eaccb0b483bb2283515b1153ae
+        uses: crystal-lang/install-crystal@v1
         with:
           crystal: ${{ matrix.crystal }}
       - name: Install shards
