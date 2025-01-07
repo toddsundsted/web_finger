@@ -32,11 +32,7 @@ class HTTP::Client
     url = url.is_a?(String) ? URI.parse(url) : url
     @@history << url
     if url.host =~ /does-not-exist/
-      {% if compare_versions(Crystal::VERSION, "1.1.0") >= 0 %}
-        raise Socket::Addrinfo::Error.from_os_error(nil, Errno.new(LibC::EAI_NONAME), domain: url.host, type: Socket::Type::STREAM, protocol: Socket::Protocol::TCP, service: 80)
-      {% else %}
-        raise Socket::Addrinfo::Error.new(LibC::EAI_NONAME, "No address found", url.host)
-      {% end %}
+      raise Socket::Addrinfo::Error.from_os_error(nil, Errno.new(LibC::EAI_NONAME), domain: url.host, type: Socket::Type::STREAM, protocol: Socket::Protocol::TCP, service: 80)
     end
     case url.query || url.path
     when /redirect/
