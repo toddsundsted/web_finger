@@ -80,8 +80,10 @@ module WebFinger
         end
       end
       raise RedirectionError.new("redirection failed: #{url}")
-    rescue ex : Socket::Addrinfo::Error
-      raise NotFoundError.new(ex.message)
+    rescue err : JSON::ParseException
+      raise ResultError.new(err.message)
+    rescue err : IO::Error | OpenSSL::Error | Compress::Deflate::Error | Compress::Gzip::Error
+      raise NotFoundError.new(err.message)
     end
   end
 end

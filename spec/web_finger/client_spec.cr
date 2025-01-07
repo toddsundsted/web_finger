@@ -32,7 +32,9 @@ class HTTP::Client
     url = url.is_a?(String) ? URI.parse(url) : url
     @@history << url
     if url.host =~ /does-not-exist/
-      raise Socket::Addrinfo::Error.from_os_error(nil, Errno.new(LibC::EAI_NONAME), domain: url.host, type: Socket::Type::STREAM, protocol: Socket::Protocol::TCP, service: 80)
+      raise Socket::Addrinfo::Error.from_os_error(nil, nil)
+    elsif url.host =~ /cant-connect/
+      raise Socket::ConnectError.from_os_error(nil, nil)
     end
     case url.query || url.path
     when /redirect/
@@ -79,6 +81,24 @@ def with_xml
   yield
 end
 
+def with_bad_json
+  HTTP::Client.set_next_response(
+    200,
+    HTTP::Headers{"Content-Type" => "application/jrd+json"},
+    "<>"
+  )
+  yield
+end
+
+def with_bad_xml
+  HTTP::Client.set_next_response(
+    200,
+    HTTP::Headers{"Content-Type" => "application/xrd+xml"},
+    "{}"
+  )
+  yield
+end
+
 def with_no_content_type
   HTTP::Client.set_next_response(
     200,
@@ -97,6 +117,12 @@ Spectator.describe WebFinger::Client do
     it "raises an error if host doesn't exist" do
       expect_raises(WebFinger::NotFoundError) do
         WebFinger::Client.query("acct:foobar@does-not-exist.com")
+      end
+    end
+
+    it "raises an error if client can't connect to host" do
+      expect_raises(WebFinger::NotFoundError) do
+        WebFinger::Client.query("acct:foobar@cant-connect.com")
       end
     end
 
@@ -127,6 +153,22 @@ Spectator.describe WebFinger::Client do
     it "returns a result" do
       with_no_content_type do
         expect(WebFinger::Client.query("acct:foobar@example.com")).to be_a(WebFinger::Result)
+      end
+    end
+
+    it "raises an error if JSON is bad" do
+      expect_raises(WebFinger::ResultError) do
+        with_bad_json do
+          WebFinger::Client.query("acct:foobar@example.com")
+        end
+      end
+    end
+
+    it "raises an error if XML is bad" do
+      expect_raises(WebFinger::ResultError) do
+        with_bad_xml do
+          WebFinger::Client.query("acct:foobar@example.com")
+        end
       end
     end
 
